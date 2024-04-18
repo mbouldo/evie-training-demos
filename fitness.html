@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness</title>
+</head>
+<body>
+    
+    <table>
+
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Weight
+            </th>
+            <th>
+                Water Intake
+            </th>
+        </tr>
+        <tbody id="target">
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+                
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+
+
+    let entries;
+
+    $.ajax({
+        url: "https://mbouldo.com/evie/fitness.php",
+        type: 'GET',
+        dataType: 'json', // added data type
+        success: function(res) {
+            entries = res;
+            
+            for(entry of entries){
+                $("#target").append(`
+                    <tr>
+                        <td>${entry.date}</td>
+                        <td>${entry.weight}</td>
+                        <td>${entry.waterIntake}</td>
+                    </tr>
+                
+                `)
+            }
+
+        }
+    });
+
+
+
+    
+
+
+</script>
+</html>

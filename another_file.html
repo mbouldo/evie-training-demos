@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file 2</title>
+</head>
+<body>
+    File 2:
+
+
+    <h1>https://mbouldo.com/evie/another_file.html?username=DATA&password=DATA</h1>
+
+    <div id="data"></div>
+</body>
+                
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+
+// get url params:
+const urlParams = new URLSearchParams(window.location.search);
+const username = urlParams.get('username')
+const password = urlParams.get('password')
+
+
+$("#data").html(`${username} ${password}`)
+
+</script>
+</html>
